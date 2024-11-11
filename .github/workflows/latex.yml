@@ -8,6 +8,9 @@ on:
       - '.github/workflows/latex.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write    # This is required for creating releases
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
