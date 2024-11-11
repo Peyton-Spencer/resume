@@ -24,14 +24,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Resume
-          path: resume.pdf
+          path: peyton-spencer-resume.pdf
           if-no-files-found: error
 
       - name: Create Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
-          files: resume.pdf
+          files: peyton-spencer-resume.pdf
           tag_name: v${{ github.run_number }}
           name: Resume Build ${{ github.run_number }}
           body: |
