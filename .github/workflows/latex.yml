@@ -23,10 +23,8 @@ jobs:
         with:
           root_file: resume-peyton-spencer.tex
           extra_system_packages: >-
-            texlive-latex-extra
-            texlive-font-utils
-            cm-super
-            texlive-moderncv
+            texlive-luatex
+            texlive-most
 
       - name: Create Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
