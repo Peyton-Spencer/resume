@@ -27,6 +27,7 @@ jobs:
             texlive-latex-extra
             texlive-font-utils
             cm-super
+            texlive-moderncv
 
       - name: Create Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
