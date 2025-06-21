@@ -1,28 +1,22 @@
-\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[12pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 \moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 \nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
-% character encoding
 \usepackage[utf8]{inputenc}
 \usepackage{tabularx}
 \usepackage{ragged2e}
 
-
-% adjust the page margins
 \usepackage[scale=0.85]{geometry}
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=*,topsep=2pt,itemsep=2pt,parsep=2pt}
+\setlist[itemize]{leftmargin=*,topsep=2pt,itemsep=5pt,parsep=2pt}
 \usepackage{import}
 
-% personal data
 \name{Peyton}{Spencer}
-% \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
-\address{Denver, CO}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
- %\phone[mobile]{(+88)0 1718268856}                   % optional, remove / comment the line if not wanted
-\email{peyton@omniaura.co}                               % optional, remove / comment the line if not wanted
-\homepage{github.com/peyton-spencer}                         % optional, remove / comment the line if not wanted
+\address{}{}{}
+\email{peyton@heyditto.ai}
+\homepage{github.com/peyton-spencer}
   
 \newcommand*{\customcventry}[7][.25em]{
   \begin{tabular}{@{}l@{}} 
@@ -64,12 +58,9 @@
 \setlength{\tabcolsep}{12pt}
 
 
-%----------------------------------------------------------------------------------
-%            content
-%----------------------------------------------------------------------------------
 \begin{document}
 \makecvtitle
-\vspace*{-23mm}
+\vspace*{-25mm}
 
 \begin{center}
 \begin{tabular}{ c c c c }
@@ -77,45 +68,37 @@
 \end{center}
 
 \section{EXPERIENCE}
-{\customcvproject{Arculus, Backend Software Developer}{2022 - present}
+
+% MARK: - Arculus
+{\customcvproject{Arculus, Lead Backend Developer}{2022 - present}
 {
-Senior backend developer for the Arculus cold storage wallet, focused on designing and implementing high-performance multi-chain APIs that power the platform's mobile applications. Lead backend architect responsible for system reliability, performance optimization, and blockchain integrations.
     \begin{itemize}
-        \item Architected and implemented a Kubernetes-deployed Go backend that aggregates 32+ blockchains through a unified API interface, replacing a limited third-party solution while maintaining 99.9\% uptime.
-        \item Designed chain-agnostic API architecture with automatic failover and hot-swapping capabilities.
-        \item Created libraries to simplify rapid blockchain integrations.
-        \item Optimized system performance through strategic database indexing, Redis caching, and query optimization.
-        \item Fixed critical idle DB connection leaks resulting in significant RDS cost reduction.
-        \item Migrated secrets from environment variables to AWS Secrets Manager.
-        \item Delivered 14 major releases in 10 months with zero breaking changes, consistently meeting mobile app team deadlines and requirements.
-        \item Established robust CI/CD pipelines with Github Actions for automated testing, security scanning, and deployment, improving team velocity and code quality.
-        \item Led technical implementations for major blockchain ecosystems including Bitcoin, Ethereum, Solana, and Cosmos, enabling new B2B partnerships.
-        \item Recognized as a blockchain technology expert, providing technical guidance to mobile teams while maintaining extensive system documentation.
+        \item Built fault-tolerant multi-chain client with minimal implementation requirements for developers, handling complex failover and retry logic while maintaining high availability across 55 blockchain networks with minimal operational overhead.
+        \item Architected monitoring system consolidating 55 individual chain monitors into one endpoint, achieving 55x cost reduction in DataDog Synthetic API Testing.
+        \item Diagnosed and resolved database connection leak growing to thousands of connections, reducing RDS costs and preventing dev environment failures through connection limits implementation.
+        \item Simplified API integrations by creating expressive HTTP client package for nearly all common requests with productivity features like automatic curl command generation for debugging.
+        \item Pioneered AI-assisted development practices company-wide, successfully pitching leadership on productivity investments while onboarding individual developers, positioning company ahead of industry adoption curve.
     \end{itemize}
 }
 }
 
-{\customcvproject{ETHDenver, Hackathon Participant }{2022, 2024}
+% MARK: - Omni Aura
+{\customcvproject{Omni Aura, Co-Founder}{2020 - present}
 {
     \begin{itemize}
-        \item 2024: \href{https://devfolio.co/projects/oops-a44f}{"Oops!"} top 15 hackathon project and a \$5,000 prize.
-        \item 2022: \href{https://github.com/teamhostel/suMERIT}{"suMERIT"} \$9,000 bounty from Metis blockchain.
+        \item Led sprint to production, implementing authentication, Stripe subscription system, and monetization strategy while migrating business logic to backend infrastructure.
+        \item Streamlined product architecture by eliminating resource-intensive demo features, reducing technical debt while focusing team on memory capabilities for competitive advantage.
+        \item Built memory search system that recursively finds related memories then generates additional search queries from initial results to maximize relevance.
+        \item Created AgentFlow, a prompt templating language and CLI.
     \end{itemize}
 }
 }
 
+% MARK: - Education
 \section{EDUCATION}
-{\customcventry{Fall 2016-Spring 2021}{Bachelor in Electrical Engineering   }{Auburn University}{Auburn, AL}{}{}}
+{\customcventry{Fall 2016-Spring 2021}{Bachelor in Electrical Engineering}{Auburn University}{Auburn, AL}{}{}}
 GPA: 3.86, Dean's List \\ 
 ACT: 34, National Merit Finalist \\
-GRE: 163 Verbal, 167 Quantitative\\
+GRE: 163 Verbal, 167 Quantitative
 
-\section{KEY SKILLS}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} >{\bfseries}l l}
-Programming & Go, SQL, Rust, TypeScript, React, Swift, Java, Kotlin, C++\\[2ex]
-Backend & AWS, GCP, Redis, Docker, Kubernetes, CI/CD, Microservices, Postgres, Sqlite \\[2ex]
-Blockchain & Solidity, Ethereum, EVM, Solana \\[2ex]
-Earned Airdrops & ENS, Optimism, Arbitrum, ZKSync \\[2ex]
-AI & Prompt Engineering, LLMs, Claude, Gemini, Mistral, OpenAI, RAG, Agents
-\end{tabular*}
 \end{document}
